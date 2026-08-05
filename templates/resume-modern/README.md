@@ -50,7 +50,7 @@
 | `SKILL.md` | Open Design 官方 resume-modern 模板规范 |
 | `styles/` | 6 个风格（各含 DESIGN.md + tokens.json + tokens.css） |
 | `style-apple.json` | Apple 风格令牌（与 styles/apple-tokens.json 等价，旧版保留） |
-| `photo.jpg` | **示例照片**（吴彦祖，仅供展示头像位置；用户替换为自己的照片——**必须同名覆盖本文件**，resume.html 用相对路径引用）；**用户无照片/不想放 → 删除 header 里的照片块**（`.header-photo` div），布局自动适应 |
+| `photo.jpg` | **占位头像**（几何抽象图，非真人；仅供展示头像位置。用户替换为自己的照片——**必须同名覆盖本文件**，resume.html 用相对路径引用）；**用户无照片/不想放 → 删除 header 里的照片块**（`.header-photo` div），布局自动适应 |
 
 ## 使用流程
 

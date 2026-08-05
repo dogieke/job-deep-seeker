@@ -20,6 +20,6 @@ log.md
 # ─── 其他图片（用户自己的照片等）───
 *.jpeg
 *.png
-# 注意：templates/resume-modern/photo.jpg 与 sample-resume/photo.jpg 是示例照片（吴彦祖），已允许上传
+# 注意：templates/ 下 photo.jpg 为几何抽象占位头像（非真人），已允许上传
 !templates/resume-modern/photo.jpg
 !templates/sample-resume/photo.jpg

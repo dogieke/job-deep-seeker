@@ -243,56 +243,54 @@ body {
       <ul class="project-list">
         <li>解放琐碎劳动：让 Agent 处理文献检索、下载、格式转换等重复性工作</li>
         <li>持续沉淀：外部参考资料、项目执行经验、用户交互偏好，三类信息持续积累复用</li>
-        <li>高效管理资料：跨 Zotero、Obsidian、Chrome 的信息整合与语义检索</li>
+        <li>高效管理资料：跨笔记软件、浏览器的信息整合与语义检索</li>
       </ul>
 
       <div class="project-sub-section">功能设计：</div>
       <ul class="project-list">
-        <li>三条核心 Skill 构成处理链路：Sciverse（找文献）→ Downloader（拿全文）→ MinerU（拆文本），搭配 web_search 插件提供网络端验证</li>
-        <li>项目级分区：四个 Project 独立配置和沉淀区，共享基础设施，切换项目即切换 Agent 行为</li>
-        <li>三层记忆：RAG 向量库（外部资料）+ llm-wiki（OKF 知识图谱）+ Markdown（Obsidian + 项目记录）</li>
-        <li>工具克制原则：APPEND_SYSTEM.md 只 {N} tokens，不常用功能封装成 prompt 快捷键，用户按需调用</li>
+        <li>三条核心 Skill 构成处理链路：检索（找文献）→ 下载（拿全文）→ 解析（拆文本），搭配 web_search 提供网络端验证</li>
+        <li>项目级分区：多个 Project 独立配置和沉淀区，共享基础设施，切换项目即切换 Agent 行为</li>
+        <li>三层记忆：RAG 向量库（外部资料）+ 知识图谱笔记 + Markdown 项目记录</li>
+        <li>工具克制原则：核心系统提示仅 {N} tokens，不常用功能封装成 prompt 快捷键，用户按需调用</li>
       </ul>
     </div>
 
-    <div class="entry" data-od-id="project-chatpin">
-      <div class="project-header">Chrome 扩展 - <a href="https://github.com/{GitHub用户名}/ChatPin-chrome-extension" target="_blank">ChatPin</a></div>
-      <div class="project-tag">LLM 对话书签工具，实现网页文本选中标记、快捷键跳转、多模式管理。通过 Cursor vibecoding 完成</div>
+    <div class="entry" data-od-id="project-notemark">
+      <div class="project-header">浏览器扩展 - <a href="https://github.com/{GitHub用户名}/{扩展仓库名}" target="_blank">{扩展名}</a></div>
+      <div class="project-tag">LLM 对话书签工具，实现网页文本选中标记、快捷键跳转、多模式管理</div>
     </div>
   </section>
 
   <hr class="divider">
 
-  <!-- 实习经历 -->
+  <!-- 实习经历（占位示例结构，填入用户真实经历） -->
   <section class="section" data-od-id="section-experience">
     <h2 class="section-title">实习经历</h2>
 
-    <!-- 江苏国际文化交流中心 -->
-    <div class="entry" data-od-id="exp-jiangsu">
+    <div class="entry" data-od-id="exp-1">
       <div class="entry-header">
         <div class="entry-header-left">
-          <div class="entry-title">江苏国际文化交流中心 — 兼职研究助理</div>
+          <div class="entry-title">{公司/机构} — {岗位}</div>
         </div>
-        <div class="entry-date">2023.12 - 2024.12</div>
+        <div class="entry-date">{起止时间}</div>
       </div>
       <ul>
-        <li>美国时政与传媒调查：撰写特朗普 2.0 内阁与政策简报，系统梳理美国非营利组织信息源，建立政治调查记者与数据记者信息档案</li>
-        <li>R 语言 990 表格数据分析 Pipeline：自主选题，独立完成从数据获取、方法设计到分析输出的全流程。通过 ProPublica API 批量获取 IRS 990 税务数据，使用 R 语言 (tidyverse) 清洗与字段提取，可视化非营利组织的资金来源结构与组织间关联 (igraph)</li>
+        <li>{工作范围与产出 1，尽量量化}</li>
+        <li>{工作范围与产出 2，体现方法/工具/迭代}</li>
       </ul>
     </div>
 
-    <!-- 观察者网 -->
-    <div class="entry" data-od-id="exp-observer">
+    <div class="entry" data-od-id="exp-2">
       <div class="entry-header">
         <div class="entry-header-left">
-          <div class="entry-title">观察者网 · 观视频创新部 — 实习编导</div>
+          <div class="entry-title">{公司/机构} — {岗位}</div>
         </div>
-        <div class="entry-date">2022.6 - 2022.9</div>
+        <div class="entry-date">{起止时间}</div>
       </div>
       <ul>
-        <li>内容编导：参与《维为道来》节目素材组织，节目播放量 125 万+；运营张维为微信公众号与播客，产出内容总阅读量 10 万+</li>
-        <li>播客推广：策划、部署《Speak Softly》<a href="https://www.douban.com/group/topic/271611682/?_i=1752520pBgebPo" target="_blank">播客社媒推广</a>，直接推动听众从 20 人增长至 1000+</li>
-        <li>素材管理系统：基于标签分类搭建人力素材标注与复用（MD 文件 + 链接构成的简单组织，tag → MD 笔记 → 链接），按主题、人物、时效三维度标记，提升检索与复用效率</li>
+        <li>{工作范围与产出 1，尽量量化}</li>
+        <li>{工作范围与产出 2}</li>
+        <li>{可选：系统/流程建设类产出}</li>
       </ul>
     </div>
   </section>
