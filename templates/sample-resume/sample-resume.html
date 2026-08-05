@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{姓名} · 个人简历</title>
+<style>
+/* ============================================
+   Reset & Base
+   ============================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  font-family: "SF Pro HK", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: #000000;
+  background: #f5f5f5;
+  line-height: 1.5;
+  padding: 40px 16px;
+}
+
+/* ============================================
+   A4 Container
+   ============================================ */
+.resume {
+  width: 210mm;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 16mm 20mm;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+}
+
+/* ============================================
+   Header
+   ============================================ */
+.header { display: flex; gap: 20px; margin-bottom: 20px; align-items: flex-start; }
+.header-main { flex: 1; min-width: 0; }
+.header-photo {
+  flex-shrink: 0; width: 96px; height: 120px; border-radius: 8px;
+  overflow: hidden; border: 1px solid #dbdbdb;
+}
+.header-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.header-name {
+  font-size: 34px; font-weight: 700; letter-spacing: -0.01em;
+  color: #000000; line-height: 1.1; margin-bottom: 4px;
+}
+.header-line { font-size: 13px; color: #8c8c8c; line-height: 1.4; letter-spacing: 0.01em; }
+
+/* ============================================
+   Section
+   ============================================ */
+.section { margin-bottom: 22px; }
+.section:last-child { margin-bottom: 0; }
+
+.section-title {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #8c8c8c; margin-bottom: 6px; padding-top: 0;
+}
+.section-title::before {
+  content: ""; display: block; width: 24px; height: 2px;
+  background: #0066cc; margin-bottom: 4px; border-radius: 1px;
+}
+
+/* Divider */
+.divider { border: none; height: 1px; background: #dbdbdb; margin: 0 0 14px 0; }
+
+/* ============================================
+   Entry (education, experience, project)
+   ============================================ */
+.entry { margin-bottom: 14px; }
+.entry:last-child { margin-bottom: 0; }
+
+.entry-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 12px; margin-bottom: 3px;
+}
+.entry-header-left { flex: 1; min-width: 0; }
+
+.entry-title { font-size: 14px; font-weight: 600; color: #000000; line-height: 1.3; }
+.entry-date {
+  font-size: 12px; color: #8c8c8c; white-space: nowrap;
+  flex-shrink: 0; text-align: right; letter-spacing: 0.01em;
+}
+
+.entry ul { list-style: none; padding: 0; margin-top: 0; }
+.entry li {
+  font-size: 13px; color: #000000; line-height: 1.45;
+  padding-left: 12px; position: relative; margin-bottom: 3px;
+}
+.entry li::before {
+  content: ""; position: absolute; left: 0; top: 7px;
+  width: 3px; height: 3px; border-radius: 50%; background: #8c8c8c;
+}
+.entry li:last-child { margin-bottom: 0; }
+.entry li strong { font-weight: 600; color: #000000; }
+
+/* Generic link styles */
+.resume a { color: #0066cc; text-decoration: none; }
+.resume a:hover { text-decoration: underline; }
+.resume a:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; border-radius: 2px; }
+
+/* ============================================
+   Project entries
+   ============================================ */
+.project-header {
+  font-size: 14px; font-weight: 600; color: #000000; line-height: 1.3; margin-bottom: 2px;
+}
+.project-tag { font-size: 12px; color: #8c8c8c; letter-spacing: 0.01em; margin-bottom: 4px; }
+.project-sub-section {
+  font-size: 13px; font-weight: 600; color: #000000; line-height: 1.3; margin: 6px 0 2px 0;
+}
+.project-list { list-style: none; padding: 0; margin: 0 0 4px 0; }
+.project-list:last-child { margin-bottom: 0; }
+.project-list li {
+  font-size: 13px; color: #000000; line-height: 1.35;
+  padding-left: 12px; position: relative; margin-bottom: 1.5px;
+}
+.project-list li::before {
+  content: ""; position: absolute; left: 0; top: 7px;
+  width: 3px; height: 3px; border-radius: 50%; background: #0066cc;
+}
+.project-list li:last-child { margin-bottom: 0; }
+
+/* ============================================
+   Skills
+   ============================================ */
+.skill-item { font-size: 13px; color: #000000; line-height: 1.45; margin-bottom: 2px; padding-left: 0; }
+.skill-item:last-child { margin-bottom: 0; }
+
+/* ============================================
+   Print Styles — one A4 page, well-proportioned
+   ============================================ */
+@media print {
+  body { background: #ffffff; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  .resume {
+    width: 100%; min-height: auto; border: none; border-radius: 0; padding: 14mm 18mm;
+  }
+
+  .header { gap: 20px; margin-bottom: 20px; }
+  .header-name { font-size: 34px; margin-bottom: 4px; line-height: 1.15; }
+  .header-line { font-size: 12px; line-height: 1.5; }
+  .header-photo { width: 90px; height: 112px; }
+  .header-photo img { width: 90px; height: 112px; }
+
+  .section { margin-bottom: 22px; }
+  .section-title { font-size: 10px; margin-bottom: 6px; }
+  .section-title::before { width: 20px; height: 1.5px; margin-bottom: 3px; }
+
+  .divider { margin: 0 0 14px 0; }
+
+  .entry { margin-bottom: 14px; }
+  .entry-header { margin-bottom: 3px; }
+  .entry-title { font-size: 13px; }
+  .entry-date { font-size: 11px; }
+  .entry li { font-size: 12px; line-height: 1.45; margin-bottom: 3px; }
+  .entry li::before { top: 7px; }
+
+  .project-header { font-size: 13px; margin-bottom: 2px; }
+  .project-tag { font-size: 11px; margin-bottom: 4px; }
+  .project-sub-section { font-size: 12px; margin: 6px 0 2px 0; }
+  .project-list { margin: 0 0 4px 0; }
+  .project-list li { font-size: 12px; line-height: 1.35; margin-bottom: 1.5px; }
+  .project-list li::before { top: 7px; }
+
+  .skill-item { font-size: 12px; line-height: 1.45; margin-bottom: 2px; }
+
+  .header-photo { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .header-photo img { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .section-title::before, .entry li::before, .project-list li::before {
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+
+  @page { size: A4; margin: 0; }
+}
+
+/* ============================================
+   Responsive fallback
+   ============================================ */
+@media screen and (max-width: 800px) {
+  body { padding: 20px 8px; }
+  .resume { width: 100%; min-height: auto; padding: 24px 20px; }
+  .header { flex-direction: column-reverse; align-items: flex-start; }
+  .header-photo { width: 80px; height: 100px; margin-bottom: 4px; }
+  .entry-header { flex-wrap: wrap; gap: 4px 12px; }
+  .entry-date { white-space: normal; }
+}
+</style>
+</head>
+<body>
+
+<main class="resume" data-od-id="resume">
+
+  <!-- Header -->
+  <header class="header" data-od-id="header">
+    <div class="header-main">
+      <h1 class="header-name">{姓名}</h1>
+      <div class="header-line">男 | {年龄}岁 | {城市} | {邮箱} | {电话}</div>
+    </div>
+    <div class="header-photo" data-od-id="photo">
+      <img src="photo.jpg" alt="{姓名}" width="96" height="120">
+    </div>
+  </header>
+
+  <hr class="divider">
+
+  <!-- 教育背景 -->
+  <section class="section" data-od-id="section-education">
+    <h2 class="section-title">教育背景</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-header-left">
+          <div class="entry-title">西交利物浦大学   国际关系 硕士</div>
+        </div>
+        <div class="entry-date">2025.9 - 2027.4</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-header-left">
+          <div class="entry-title">西交利物浦大学   国际关系 本科</div>
+        </div>
+        <div class="entry-date">2021.9 - 2025.7</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 个人项目 -->
+  <section class="section" data-od-id="section-projects">
+    <h2 class="section-title">个人项目</h2>
+
+    <div class="entry" data-od-id="project-agent">
+      <div class="project-header">个人 Agent 系统 — 基于 Pi 的个人智能体</div>
+      <div class="project-tag">技术栈：Pi (Agent Harness) Sciverse API / MinerU API</div>
+
+      <div class="project-sub-section">Agent 设计目标：</div>
+      <ul class="project-list">
+        <li>解放琐碎劳动：让 Agent 处理文献检索、下载、格式转换等重复性工作</li>
+        <li>持续沉淀：外部参考资料、项目执行经验、用户交互偏好，三类信息持续积累复用</li>
+        <li>高效管理资料：跨 Zotero、Obsidian、Chrome 的信息整合与语义检索</li>
+      </ul>
+
+      <div class="project-sub-section">功能设计：</div>
+      <ul class="project-list">
+        <li>三条核心 Skill 构成处理链路：Sciverse（找文献）→ Downloader（拿全文）→ MinerU（拆文本），搭配 web_search 插件提供网络端验证</li>
+        <li>项目级分区：四个 Project 独立配置和沉淀区，共享基础设施，切换项目即切换 Agent 行为</li>
+        <li>三层记忆：RAG 向量库（外部资料）+ llm-wiki（OKF 知识图谱）+ Markdown（Obsidian + 项目记录）</li>
+        <li>工具克制原则：APPEND_SYSTEM.md 只 310 tokens，不常用功能封装成 prompt 快捷键，用户按需调用</li>
+      </ul>
+    </div>
+
+    <div class="entry" data-od-id="project-chatpin">
+      <div class="project-header">Chrome 扩展 - <a href="https://github.com/{GitHub用户名}/ChatPin-chrome-extension" target="_blank">ChatPin</a></div>
+      <div class="project-tag">LLM 对话书签工具，实现网页文本选中标记、快捷键跳转、多模式管理。通过 Cursor vibecoding 完成</div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 实习经历 -->
+  <section class="section" data-od-id="section-experience">
+    <h2 class="section-title">实习经历</h2>
+
+    <!-- 江苏国际文化交流中心 -->
+    <div class="entry" data-od-id="exp-jiangsu">
+      <div class="entry-header">
+        <div class="entry-header-left">
+          <div class="entry-title">江苏国际文化交流中心 — 兼职研究助理</div>
+        </div>
+        <div class="entry-date">2023.12 - 2024.12</div>
+      </div>
+      <ul>
+        <li>美国时政与传媒调查：撰写特朗普 2.0 内阁与政策简报，系统梳理美国非营利组织信息源，建立政治调查记者与数据记者信息档案</li>
+        <li>R 语言 990 表格数据分析 Pipeline：自主选题，独立完成从数据获取、方法设计到分析输出的全流程。通过 ProPublica API 批量获取 IRS 990 税务数据，使用 R 语言 (tidyverse) 清洗与字段提取，可视化非营利组织的资金来源结构与组织间关联 (igraph)</li>
+      </ul>
+    </div>
+
+    <!-- 观察者网 -->
+    <div class="entry" data-od-id="exp-observer">
+      <div class="entry-header">
+        <div class="entry-header-left">
+          <div class="entry-title">观察者网 · 观视频创新部 — 实习编导</div>
+        </div>
+        <div class="entry-date">2022.6 - 2022.9</div>
+      </div>
+      <ul>
+        <li>内容编导：参与《维为道来》节目素材组织，节目播放量 125 万+；运营张维为微信公众号与播客，产出内容总阅读量 10 万+</li>
+        <li>播客推广：策划、部署《Speak Softly》<a href="https://www.douban.com/group/topic/271611682/?_i=1752520pBgebPo" target="_blank">播客社媒推广</a>，直接推动听众从 20 人增长至 1000+</li>
+        <li>素材管理系统：基于标签分类搭建人力素材标注与复用（MD 文件 + 链接构成的简单组织，tag → MD 笔记 → 链接），按主题、人物、时效三维度标记，提升检索与复用效率</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 技能 -->
+  <section class="section" data-od-id="section-skills">
+    <h2 class="section-title">技能</h2>
+
+    <div class="skill-item">R 语言数据分析</div>
+    <div class="skill-item">语言：英文（全英授课，熟练研读英文学术文献）</div>
+    <div class="skill-item">AI Agent 设计：Prompt Engineering / Multi-Agent 协作 / Harness 搭建 / Skill 系统设计</div>
+  </section>
+
+</main>
+
+</body>
+</html>
